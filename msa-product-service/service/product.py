@@ -13,3 +13,8 @@ def register(db: Session, product: ProductBase):
     print(product)
 
     return product
+
+def productlist(db: Session):
+    return db.query(Product.name, Product.price,
+              Product.regdate, Product.pno)\
+              .order_by(Product.pno.desc()).all()
