@@ -17,6 +17,7 @@ async def new_user(user: UserBase, db: Session=Depends(get_db)):
 
     return register(db, user)
 
+
 @router.get('/users', response_model=list[UserList])
 async def list_users(db: Session=Depends(get_db)):
     users = userlist(db)
